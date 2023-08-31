@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/playwright@1.37.1/lib/index.js"></script>
+
+
+</head>
+
+<body>
+    <div class="btn">Click Me</div>
+    <script>
+        document.getElementById('runScriptButton').addEventListener('click', function () {
+            (async () => {
+                // Ваш скрипт сюда
+                const browser = await playwright.chromium.launch({
+                    headless: true
+                });
+                const context = await browser.newContext();
+                const page = await context.newPage();
+                // Остальной код вашего скрипта...
+
+                await context.close();
+                await browser.close();
+            })();
+        });
+
+    </script>
+</body>
+
+</html>
